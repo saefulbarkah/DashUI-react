@@ -11,6 +11,7 @@ import {
   Toolbar,
   Typography,
 } from '@mui/material';
+import Image from 'next/image';
 import React from 'react';
 import { FiActivity, FiLogOut, FiUser } from 'react-icons/fi';
 
@@ -32,7 +33,9 @@ export default function UserMenu() {
   return (
     <>
       <IconButton onClick={handleClick}>
-        <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+        <Avatar>
+          <Image fill alt="none" src={'/assets/img/avatar/eful.jpg'} priority />
+        </Avatar>
       </IconButton>
       <Menu
         anchorEl={anchorEl}
