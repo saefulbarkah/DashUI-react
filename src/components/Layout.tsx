@@ -13,10 +13,12 @@ export default function Layout({ children }: PropsWithChildren) {
         sx={{
           flexGrow: 1,
           px: 3,
-          py: 12,
+          mt: '90px',
+          pt: '40px',
+          minHeight: 'calc(100vh - 90px)',
           width: { sm: `calc(100% - ${sidebarWidth}px)` },
-          minHeight: `calc(100vh)`,
           backgroundColor: '#F4F6F8',
+          position: 'relative',
         }}
         component={'main'}
       >
