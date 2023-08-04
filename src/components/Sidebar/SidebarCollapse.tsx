@@ -9,6 +9,7 @@ import React, { useState } from 'react';
 import { SidebarItem, TSidebarItem } from './SidebarItem';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import { usePathname } from 'next/navigation';
+import { BsDot } from 'react-icons/bs';
 
 type TSidebarCollapse = TSidebarItem & {};
 
@@ -39,7 +40,7 @@ export const SidebarCollapse = ({ route, isActive }: TSidebarCollapse) => {
               key={i}
             >
               <ListItemIcon sx={{ mr: -4, color: '#919EAB' }}>
-                &#x2022;
+                <BsDot size={25} />
               </ListItemIcon>
               <ListItemText primary={item.name} />
             </ListItemButton>
