@@ -13,7 +13,7 @@ export default function Layout({ children }: PropsWithChildren) {
         sx={{
           flexGrow: 1,
           px: 3,
-          py: 8,
+          py: 12,
           width: { sm: `calc(100% - ${sidebarWidth}px)` },
           minHeight: `calc(100vh)`,
           backgroundColor: '#F4F6F8',
