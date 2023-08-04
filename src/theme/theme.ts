@@ -4,10 +4,12 @@ import { Inter } from 'next/font/google';
 declare module '@mui/material/styles' {
   interface Palette {
     dark: PaletteColorOptions;
+    danger: PaletteColorOptions;
   }
 
   interface PaletteOptions {
     dark?: PaletteColorOptions;
+    danger?: PaletteColorOptions;
   }
 }
 
@@ -15,7 +17,6 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const theme = createTheme({
   palette: {
-    mode: 'light',
     primary: {
       main: '#624BFF',
     },
@@ -28,7 +29,7 @@ export const theme = createTheme({
     info: {
       main: '#0DCAF0',
     },
-    error: {
+    danger: {
       main: '#DC3545',
     },
     warning: {

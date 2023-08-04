@@ -1,6 +1,7 @@
 import ThemeRegistry from '@/theme/themeRegistry';
 import './globals.css';
 import type { Metadata } from 'next';
+import Layout from '@/components/Layout';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -15,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ThemeRegistry options={{ key: 'mui' }}>{children}</ThemeRegistry>
+        <ThemeRegistry options={{ key: 'mui' }}>
+          <Layout>{children}</Layout>
+        </ThemeRegistry>
       </body>
     </html>
   );
