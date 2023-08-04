@@ -49,7 +49,7 @@ export default function UserMenu() {
           },
         }}
       >
-        <Toolbar>
+        <MenuItem>
           <Stack>
             <Typography
               fontSize={14}
@@ -66,7 +66,7 @@ export default function UserMenu() {
               View my profile
             </Typography>
           </Stack>
-        </Toolbar>
+        </MenuItem>
         <Divider />
         {menus.map((item, i) => (
           <MenuItem key={i} sx={{ color: theme.palette.grey[700] }}>
