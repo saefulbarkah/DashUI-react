@@ -4,10 +4,13 @@ import { Drawer, List, Toolbar, Typography } from '@mui/material';
 import React from 'react';
 import { SidebarItem } from './SidebarItem';
 import { SidebarCollapse } from './SidebarCollapse';
+import { usePathname } from 'next/navigation';
 
 export const sidebarWidth = 256;
 
 export const Sidebar = () => {
+  const path = usePathname();
+
   return (
     <Drawer
       variant="permanent"

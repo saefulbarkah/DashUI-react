@@ -47,7 +47,7 @@ export const Navbar = () => {
             width: '100%',
           }}
         >
-          <TextField label="Search" size="small" />
+          <TextField label="Search" size="small" id="search" />
           <Box display={'flex'} alignItems={'center'} gap={'10px'}>
             <IconButton>
               <StyledBadge badgeContent={4} color="error">

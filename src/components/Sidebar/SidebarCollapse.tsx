@@ -10,23 +10,38 @@ import { SidebarItem, TSidebarItem } from './SidebarItem';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import { usePathname } from 'next/navigation';
 import { BsDot } from 'react-icons/bs';
+import { useSidebarCollapse } from './store';
+import { sidebarRoute } from '@/lib/route';
 
 type TSidebarCollapse = TSidebarItem & {};
 
-export const SidebarCollapse = ({ route, isActive }: TSidebarCollapse) => {
-  const [open, setOpen] = useState(false);
+export const SidebarCollapse = ({ route }: TSidebarCollapse) => {
+  const isOpen = useSidebarCollapse((state) => state.open);
+  const toggleOpen = useSidebarCollapse((state) => state.toggleOpen);
   const path = usePathname();
+
+  const statusOpen = isOpen[route.name] ? false : true;
+
+  React.useEffect(() => {
+    sidebarRoute.map((menu) => {
+      const find = menu.child.find((item) => item.path === path);
+      if (find) {
+        toggleOpen(menu.name, true);
+      }
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
       <SidebarItem
         route={route}
-        onClick={() => setOpen((state) => !state)}
-        isActive={open}
+        onClick={() => toggleOpen(route.name, statusOpen)}
+        isActive={isOpen[route.name]}
       >
-        {open ? <FiChevronDown /> : <FiChevronUp />}
+        {isOpen[route.name] ? <FiChevronDown /> : <FiChevronUp />}
       </SidebarItem>
-      <Collapse in={open} timeout={'auto'} unmountOnExit>
+      <Collapse in={isOpen[route.name]} timeout={'auto'} unmountOnExit>
         <List component={'div'} disablePadding>
           {route.child?.map((item, i) => (
             <ListItemButton

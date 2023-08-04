@@ -9,10 +9,6 @@ export const sidebarRoute = [
         name: 'Project',
         path: '/',
       },
-      {
-        name: 'Project',
-        path: '/asd',
-      },
     ],
   },
   {
