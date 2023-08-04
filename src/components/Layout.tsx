@@ -16,6 +16,7 @@ export default function Layout({ children }: PropsWithChildren) {
           py: 8,
           width: { sm: `calc(100% - ${sidebarWidth}px)` },
           minHeight: `calc(100vh)`,
+          backgroundColor: '#F4F6F8',
         }}
         component={'main'}
       >
