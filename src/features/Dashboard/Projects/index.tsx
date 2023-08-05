@@ -3,6 +3,7 @@ import { Pagetitle } from '@/components/Pagetitle';
 import { Box, Button, Stack } from '@mui/material';
 import React from 'react';
 import ProjectLists from './components/ProjectLists';
+import ActiveProject from './components/ActiveProject';
 
 export const Projects = () => {
   return (
@@ -33,6 +34,7 @@ export const Projects = () => {
         </Stack>
         <Stack spacing={'26px'}>
           <ProjectLists />
+          <ActiveProject />
         </Stack>
       </Stack>
     </>
