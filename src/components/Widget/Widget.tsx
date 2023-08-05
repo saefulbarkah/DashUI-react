@@ -1,22 +1,52 @@
+import { theme } from '@/theme/theme';
 import {
   Box,
+  BoxProps,
   Card,
   CardContent,
+  PaletteColor,
+  PaletteColorOptions,
+  PaletteOptions,
   Stack,
   Typography,
   alpha,
+  styled,
 } from '@mui/material';
 import React from 'react';
 
-type TWidget = {
+type Twidget = {
   name: string;
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
+  colorSchema?: keyof PaletteOptions;
 };
 
-export const Widget = ({ icon, name }: TWidget) => {
+type TwidgetIcon = Pick<Twidget, 'icon'> &
+  BoxProps & {
+    color: string;
+  };
+
+const WidgetIcon = styled(Box)<TwidgetIcon>(({ color, theme }) => ({
+  padding: '8px',
+  display: 'flex',
+  alignItems: 'center',
+  borderRadius: '6px',
+  backgroundColor: alpha(color, 0.2),
+  color: `${color}`,
+}));
+
+export const Widget = ({ icon, name, colorSchema = 'primary' }: Twidget) => {
+  const color = theme.palette[colorSchema] as PaletteColor;
+
   return (
     <div>
-      <Card sx={{ width: '251px', height: '157px' }}>
+      <Card
+        sx={{
+          height: '157px',
+          boxShadow:
+            '0px 1px 2px 0px rgba(21, 30, 40, 0.08), 0px 2px 4px 0px rgba(13, 23, 33, 0.08);',
+        }}
+        elevation={0}
+      >
         <CardContent sx={{ padding: '24px' }}>
           <Stack
             direction={'row'}
@@ -30,17 +60,7 @@ export const Widget = ({ icon, name }: TWidget) => {
             >
               {name}
             </Typography>
-            <Box
-              sx={{
-                bgcolor: 'cyan',
-                padding: '8px',
-                display: 'flex',
-                alignItems: 'center',
-                borderRadius: '6px',
-              }}
-            >
-              {icon}
-            </Box>
+            <WidgetIcon color={color.main}>{icon}</WidgetIcon>
           </Stack>
         </CardContent>
       </Card>

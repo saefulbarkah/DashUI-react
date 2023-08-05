@@ -7,7 +7,7 @@ export const sidebarRoute = [
     child: [
       {
         name: 'Project',
-        path: '/',
+        path: '/dashboard/projects',
       },
     ],
   },

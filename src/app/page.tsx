@@ -1,6 +1,5 @@
-import { Dashboard } from '@/features/Dashboard';
-import React from 'react';
+import { redirect } from 'next/navigation';
 
 export default function page() {
-  return <Dashboard />;
+  return redirect('/dashboard/projects');
 }
