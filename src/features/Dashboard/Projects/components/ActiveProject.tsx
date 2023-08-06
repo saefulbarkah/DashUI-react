@@ -102,7 +102,7 @@ export default function ActiveProject() {
                       <TableCell align="left">
                         <Stack direction={'row'} alignItems={'center'} gap={2}>
                           <Typography fontSize={'14px'}>
-                            %{row.progress}
+                            {row.progress}%
                           </Typography>
                           <LinearProgress
                             variant="determinate"
