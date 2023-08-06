@@ -1,12 +1,13 @@
+import { theme } from '@/theme/theme';
 import {
   Avatar,
   AvatarGroup,
-  Badge,
   Box,
   Button,
   Card,
   CardActions,
   CardContent,
+  CardHeader,
   LinearProgress,
   Paper,
   Stack,
@@ -19,11 +20,31 @@ import {
   Typography,
   alpha,
 } from '@mui/material';
+import Image from 'next/image';
 import React from 'react';
+import { BsDropbox } from 'react-icons/bs';
+import { FiGithub, FiSlack } from 'react-icons/fi';
 
 const rows = [
   {
+    icon: 'dropbox.svg',
     name: 'File Management App',
+    hours: '34',
+    priority: 'medium',
+    member: ['Remy Sharp', 'Remy Sharp', 'Remy Sharp', 'Remy Sharp'],
+    progress: 15,
+  },
+  {
+    icon: 'github.svg',
+    name: 'Slack Team UI Design',
+    hours: '34',
+    priority: 'medium',
+    member: ['Remy Sharp', 'Remy Sharp', 'Remy Sharp', 'Remy Sharp'],
+    progress: 15,
+  },
+  {
+    icon: 'slack.svg',
+    name: 'GitHub Satellite',
     hours: '34',
     priority: 'medium',
     member: ['Remy Sharp', 'Remy Sharp', 'Remy Sharp', 'Remy Sharp'],
@@ -71,7 +92,29 @@ export default function ActiveProject() {
                 <TableBody>
                   {rows.map((row) => (
                     <TableRow key={row.name}>
-                      <TableCell>{row.name}</TableCell>
+                      <TableCell>
+                        <CardHeader
+                          avatar={
+                            <Box
+                              sx={{
+                                p: '10px',
+                                border: '1px solid #CBD5E1',
+                                display: 'flex',
+                                alignItems: 'center',
+                                borderRadius: '5px',
+                              }}
+                            >
+                              <Image
+                                src={`/assets/logo/${row.icon}`}
+                                alt={row.icon}
+                                width={20}
+                                height={20}
+                              />
+                            </Box>
+                          }
+                          title={row.name}
+                        />
+                      </TableCell>
                       <TableCell align="right">{row.hours}</TableCell>
                       <TableCell align="right">
                         <Button
