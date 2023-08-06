@@ -41,7 +41,7 @@ export const theme = createTheme({
       main: '#FFC107',
     },
     dark: {
-      main: '#212529',
+      main: '#0F172A',
     },
     light: {
       main: '#FFFFFF',
