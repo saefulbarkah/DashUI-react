@@ -11,7 +11,6 @@ import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import { usePathname } from 'next/navigation';
 import { BsDot } from 'react-icons/bs';
 import { useSidebarCollapse } from './store';
-import { sidebarRoute } from '@/lib/route';
 
 type TSidebarCollapse = TSidebarItem & {};
 
@@ -23,12 +22,10 @@ export const SidebarCollapse = ({ route }: TSidebarCollapse) => {
   const statusOpen = isOpen[route.name] ? false : true;
 
   React.useEffect(() => {
-    sidebarRoute.map((menu) => {
-      const find = menu.child.find((item) => item.path === path);
-      if (find) {
-        toggleOpen(menu.name, true);
-      }
-    });
+    const find = route.child?.find((item) => item.path === path);
+    if (find) {
+      toggleOpen(route.name, true);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

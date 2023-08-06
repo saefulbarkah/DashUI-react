@@ -9,8 +9,6 @@ import { usePathname } from 'next/navigation';
 export const sidebarWidth = 256;
 
 export const Sidebar = () => {
-  const path = usePathname();
-
   return (
     <Drawer
       variant="permanent"

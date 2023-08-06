@@ -1,9 +1,9 @@
-import { FiHome, FiLayers, FiLock } from 'react-icons/fi';
+import { FiFile, FiHome, FiLayers, FiLock } from 'react-icons/fi';
 export const sidebarRoute = [
   {
     name: 'Dashboard',
     icon: <FiHome color={'#919EAB'} />,
-    path: '#dashboard',
+    path: null,
     child: [
       {
         name: 'Project',
@@ -14,7 +14,7 @@ export const sidebarRoute = [
   {
     name: 'Pages',
     icon: <FiLayers color={'#919EAB'} />,
-    path: '#Pages',
+    path: null,
     child: [
       {
         name: 'Profile',
@@ -33,7 +33,7 @@ export const sidebarRoute = [
   {
     name: 'Authentication',
     icon: <FiLock color={'#919EAB'} />,
-    path: '#Authentication',
+    path: null,
     child: [
       {
         name: 'Sign in',
@@ -48,5 +48,10 @@ export const sidebarRoute = [
         path: '#Reset-Password',
       },
     ],
+  },
+  {
+    name: 'Blank pages',
+    icon: <FiFile color={'#919EAB'} />,
+    path: '/blank',
   },
 ];
