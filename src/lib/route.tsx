@@ -3,7 +3,7 @@ export const sidebarRoute = [
   {
     name: 'Dashboard',
     icon: <FiHome color={'#919EAB'} />,
-    path: null,
+    path: '#',
     child: [
       {
         name: 'Project',
@@ -14,7 +14,7 @@ export const sidebarRoute = [
   {
     name: 'Pages',
     icon: <FiLayers color={'#919EAB'} />,
-    path: null,
+    path: '#',
     child: [
       {
         name: 'Profile',
@@ -33,7 +33,7 @@ export const sidebarRoute = [
   {
     name: 'Authentication',
     icon: <FiLock color={'#919EAB'} />,
-    path: null,
+    path: '#',
     child: [
       {
         name: 'Sign in',

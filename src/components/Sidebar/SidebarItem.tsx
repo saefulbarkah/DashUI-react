@@ -4,8 +4,8 @@ import {
   ListItemIcon,
   ListItemText,
 } from '@mui/material';
-import Link from 'next/link';
 import React from 'react';
+import { NextLink } from '../Link';
 
 type sidebarChild = {
   name: string;
@@ -29,24 +29,8 @@ export const SidebarItem = ({
   isActive = false,
   ...props
 }: TSidebarItem) => {
-  if (route.path === null) {
-    return (
-      <ListItemButton
-        sx={{
-          color: isActive ? 'white' : '#919EAB',
-          transition: 'color 0.2s',
-          '&:hover': { color: 'white' },
-        }}
-        {...props}
-      >
-        <ListItemIcon sx={{ mr: -4 }}>{route.icon}</ListItemIcon>
-        <ListItemText primary={route.name} />
-        {children}
-      </ListItemButton>
-    );
-  }
   return (
-    <Link href={`${route.path}`} passHref style={{ textDecoration: 'none' }}>
+    <NextLink href={`${route.path}`} underline="none" scroll={false}>
       <ListItemButton
         sx={{
           color: isActive ? 'white' : '#919EAB',
@@ -59,6 +43,6 @@ export const SidebarItem = ({
         <ListItemText primary={route.name} />
         {children}
       </ListItemButton>
-    </Link>
+    </NextLink>
   );
 };
