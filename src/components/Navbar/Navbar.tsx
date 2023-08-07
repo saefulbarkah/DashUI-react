@@ -1,31 +1,9 @@
 'use client';
-import {
-  AppBar,
-  Avatar,
-  Badge,
-  BadgeProps,
-  Box,
-  Divider,
-  IconButton,
-  Menu,
-  MenuItem,
-  TextField,
-  Toolbar,
-  styled,
-} from '@mui/material';
-import React, { useState } from 'react';
+import { AppBar, Box, TextField, Toolbar } from '@mui/material';
+import React from 'react';
 import { sidebarWidth } from '../Sidebar';
-import { FiBell } from 'react-icons/fi';
 import UserMenu from './UserMenu';
-
-const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
-  '& .MuiBadge-badge': {
-    right: -3,
-    top: 0,
-    border: `2px solid ${theme.palette.background.paper}`,
-    padding: '0 4px',
-  },
-}));
+import NotificationMenu from './NotificationMenu';
 
 export const Navbar = () => {
   return (
@@ -53,11 +31,7 @@ export const Navbar = () => {
         >
           <TextField label="Search" size="small" id="search" />
           <Box display={'flex'} alignItems={'center'} gap={'10px'}>
-            <IconButton>
-              <StyledBadge badgeContent={4} color="error">
-                <FiBell />
-              </StyledBadge>
-            </IconButton>
+            <NotificationMenu />
             <UserMenu />
           </Box>
         </Box>
