@@ -2,12 +2,19 @@ import { PaletteColorOptions, createTheme } from '@mui/material/styles';
 import { Inter } from 'next/font/google';
 
 declare module '@mui/material/styles' {
-  interface Palette {
+  interface CustomPalette {
     dark: PaletteColorOptions;
+    danger: PaletteColorOptions;
+    light: PaletteColorOptions;
   }
 
-  interface PaletteOptions {
-    dark?: PaletteColorOptions;
+  interface Palette extends CustomPalette {}
+  interface PaletteOptions extends CustomPalette {}
+}
+
+declare module '@mui/material/Button' {
+  interface ButtonPropsColorOverrides {
+    light: true;
   }
 }
 
@@ -15,7 +22,6 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const theme = createTheme({
   palette: {
-    mode: 'light',
     primary: {
       main: '#624BFF',
     },
@@ -28,17 +34,36 @@ export const theme = createTheme({
     info: {
       main: '#0DCAF0',
     },
-    error: {
+    danger: {
       main: '#DC3545',
     },
     warning: {
       main: '#FFC107',
     },
     dark: {
-      main: '#212529',
+      main: '#0F172A',
+    },
+    light: {
+      main: '#FFFFFF',
+      light: '#FFFFFF',
+      dark: '#F2F2F2',
+      contrastText: '#624BFF',
     },
   },
+
   typography: {
     fontFamily: inter.style.fontFamily,
+    button: {
+      textTransform: 'capitalize',
+    },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: 8,
+        },
+      },
+    },
   },
 });
